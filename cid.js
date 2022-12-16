@@ -8,9 +8,10 @@ class CID {
         return this.ten_to_u36(now,9) + this.ten_to_u36(pad,7)
     }
     getTime(id){
-        let stamp = this.u36_to_ten(id.substr(0,9));
-        console.log(stamp)
-        return new Date(stamp)
+        return new Date(this.getTimestamp(id))
+    }
+    getTimestamp(id){
+        return this.u36_to_ten(id.substr(0,9));
     }
     ten_to_u36(n,u) {
         let r = "";
