@@ -1,8 +1,6 @@
 package cid
 
-//Correct Identifier
-
-// 2059-5-26 1:38:27
+// Correct Identifier
 
 import (
 	crand "crypto/rand"
@@ -33,17 +31,17 @@ func NewStringID(t time.Time) string {
 	return b2s(b1[:6], b2[:4])
 }
 
-func BytesIDToTimestamp(bytesID []byte) int64 {
+func GetTimestampByBytesID(bytesID []byte) int64 {
 	return int64(bytesToUint64(bytesID[:6]))
 }
 
-func StringIDToTimestamp(stringID string) int64 {
-	return int64(u36ToTen(stringID[:8]))
+func GetTimestampByStringID(stringID string) int64 {
+	return int64(u36ToTen(stringID[:9]))
 }
 
 func StringIDToBytesID(stringID string) []byte {
-	t1 := u36ToTen(stringID[:8])
-	t2 := u36ToTen(stringID[8:])
+	t1 := u36ToTen(stringID[:9])
+	t2 := u36ToTen(stringID[9:])
 	b1 := Uint64ToBytes(t1)
 	b2 := Uint64ToBytes(t2)
 	return merge(b1[:6], b2[2:6])
@@ -58,7 +56,7 @@ func b2s(b1, b2 []byte) string {
 		uint64(b1[2])<<24 | uint64(b1[1])<<32 | uint64(b1[0])<<40
 	i2 := uint64(b2[3]) | uint64(b2[2])<<8 | uint64(b2[1])<<16 |
 		uint64(b2[0])<<24
-	return tenToU36(i1) + tenToU36(i2)
+	return tenToU36(i1, 9) + tenToU36(i2, 7)
 }
 
 func randomPadding() []byte {
@@ -89,13 +87,13 @@ func merge(b1 []byte, b2 []byte) []byte {
 	return id
 }
 
-func tenToU36(n uint64) string {
+func tenToU36(n uint64, u int) string {
 	r := ""
 	for n != 0 {
 		r = string(keyString[n%36]) + r
 		n = n / 36
 	}
-	for i := len(r); i < 8; i++ {
+	for i := len(r); i < u; i++ {
 		r = "0" + r
 	}
 	return r

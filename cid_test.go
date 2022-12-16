@@ -38,20 +38,20 @@ func BenchmarkBytesIDToStringID(b *testing.B) {
 		_ = BytesIDToStringID(id)
 	}
 }
-func BenchmarkStringIDToTimestamp(b *testing.B) {
+func BenchmarkGetTimestampByStringID(b *testing.B) {
 	id := NewStringID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = StringIDToTimestamp(id)
+		_ = GetTimestampByStringID(id)
 	}
 }
-func BenchmarkBytesIDToTimestamp(b *testing.B) {
+func BenchmarkGetTimestampByBytesID(b *testing.B) {
 	id := NewBytesID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = BytesIDToTimestamp(id)
+		_ = GetTimestampByBytesID(id)
 	}
 }
 

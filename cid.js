@@ -5,20 +5,21 @@ class CID {
     generate() {
         let pad = Math.ceil(Math.random() * 4294967295)
         let now = new Date().getTime();
-        return this.ten_to_u36(now) + this.ten_to_u36(pad)
+        return this.ten_to_u36(now,9) + this.ten_to_u36(pad,7)
     }
     getTime(id){
-        let stamp = this.u36_to_ten(id.substr(0,8));
+        let stamp = this.u36_to_ten(id.substr(0,9));
+        console.log(stamp)
         return new Date(stamp)
     }
-    ten_to_u36(n) {
+    ten_to_u36(n,u) {
         let r = "";
         do {
             r = this.keys.charAt(n % 36) + r;
             n = parseInt(n / 36);
         } while (n != 0)
 
-        for (let i = r.length; i < 8; i++) {
+        for (let i = r.length; i < u; i++) {
             r = "0" + r
         }
         return r
