@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"qorm.com/rely/cid"
+	"github.com/qorm/cid"
 )
 
 func BenchmarkBytesID(b *testing.B) {
