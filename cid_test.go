@@ -1,10 +1,8 @@
-package cid_test
+package cid
 
 import (
 	"testing"
 	"time"
-
-	"github.com/qorm/cid"
 )
 
 func BenchmarkBytesID(b *testing.B) {
@@ -12,7 +10,7 @@ func BenchmarkBytesID(b *testing.B) {
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.NewBytesID(t)
+		_ = NewBytesID(t)
 	}
 }
 
@@ -21,39 +19,39 @@ func BenchmarkStringID(b *testing.B) {
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.NewStringID(t)
+		_ = NewStringID(t)
 	}
 }
 func BenchmarkStringIDToBytesID(b *testing.B) {
-	id := cid.NewStringID(time.Now())
+	id := NewStringID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.StringIDToBytesID(id)
+		_ = StringIDToBytesID(id)
 	}
 }
 func BenchmarkBytesIDToStringID(b *testing.B) {
-	id := cid.NewBytesID(time.Now())
+	id := NewBytesID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.BytesIDToStringID(id)
+		_ = BytesIDToStringID(id)
 	}
 }
 func BenchmarkStringIDToTimestamp(b *testing.B) {
-	id := cid.NewStringID(time.Now())
+	id := NewStringID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.StringIDToTimestamp(id)
+		_ = StringIDToTimestamp(id)
 	}
 }
 func BenchmarkBytesIDToTimestamp(b *testing.B) {
-	id := cid.NewBytesID(time.Now())
+	id := NewBytesID(time.Now())
 	b.ReportAllocs()
 	b.SetBytes(32)
 	for i := 0; i < b.N; i++ {
-		_ = cid.BytesIDToTimestamp(id)
+		_ = BytesIDToTimestamp(id)
 	}
 }
 
