@@ -49,4 +49,5 @@ let cid = new CID();
 let id = cid.generate()
 console.log(id);
 console.log(cid.getTime(id))
+console.log(cid.getTimestamp(id))
 ```
