@@ -1,6 +1,8 @@
-Correct Identifier
+# Correct Identifier
 
-10 bytes or 16 characters
+## 10 bytes or 16 characters
+
+### 2059-5-26 1:38:27
 
 ```golang
 package main
@@ -21,7 +23,7 @@ func main(){
 
 // StringIDToBytesID
 
-//# BytesIDToStringID
+// BytesIDToStringID
 }
 ```
 
