@@ -1,0 +1,18 @@
+<html>
+
+<head>
+    <script src="./cid.js"></script>
+</head>
+
+<body>
+    <div id="cid"></div>
+</body>
+<script type="text/javascript">
+    let cid = new CID();
+    let id = cid.generate()
+    document.querySelector('#cid').innerHTML = id;
+
+    console.log(cid.getTime(id))
+</script>
+
+</html>

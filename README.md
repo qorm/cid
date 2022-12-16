@@ -4,6 +4,7 @@ Correct Identifier
 
 ```golang
 package main
+//go
 import (
     "time"
     "github.com/qorm/cid"
@@ -22,4 +23,12 @@ func main(){
 
 //# BytesIDToStringID
 }
+```
+
+```javascript
+// js
+let cid = new CID();
+let id = cid.generate()
+document.querySelector('#cid').innerHTML = id;
+console.log(cid.getTime(id))
 ```
