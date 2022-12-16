@@ -1,6 +1,10 @@
 # Correct Identifier
 
-## 10 bytes or 16 characters
+## 10 bytes (timestamp 6 bytes,random number 4 bytes)
+## 16 characters (timestamp 9 characters,random number 7 characters)
+### $\color{#6666cc}{0LBQ98NYA}$ $\color{#66cc66}{1VKNOJ0}$
+### $\color{#6666cc}{0LBQ98NYA}$ timestamp
+### $\color{#66cc66}{1VKNOJ0}$ random number
 
 ``` 
 goos: darwin
