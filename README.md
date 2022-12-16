@@ -29,6 +29,6 @@ func main(){
 // js
 let cid = new CID();
 let id = cid.generate()
-document.querySelector('#cid').innerHTML = id;
+console.log(id);
 console.log(cid.getTime(id))
 ```
