@@ -33,9 +33,9 @@ func main(){
 // NewStringID
 //example:  cid.NewStringID(time.Now())
 
-// BytesIDToTimestamp
+// GetTimestampByBytesID
 
-// StringIDToTimestamp
+// GetTimestampByStringID
 
 // StringIDToBytesID
 
